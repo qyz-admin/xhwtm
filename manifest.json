@@ -1,0 +1,6 @@
+{
+      “manifest_version”: 3, 插件版本，现在都用3了，后面就会不再支持版本2
+      “name”: “Hello Extensions”, 插件名称
+      “description”: “Base Level Extension”, 插件描述
+      “version”: “1.0”,  插件开发版本
+}
