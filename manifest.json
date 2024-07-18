@@ -1,6 +1,35 @@
 {
-      "manifest_version": 3, 插件版本，现在都用3了，后面就会不再支持版本2
-      "name": "Hello Extensions", 插件名称
-      "description": "Base Level Extension", 插件描述
-      "version": "1.0",  插件开发版本
+      "manifest_version": 3, //插件版本，现在都用3了，后面就会不再支持版本2
+      "name": "Hello Extensions", //插件名称
+      "description": "Base Level Extension", //插件描述
+      "version": "1.0",  //插件开发版本
+      "permissions":["notifications","tabs"],//使用权限
+
+
+     "action": { 
+        "default_popup": "hello.html",  点击扩展图标时，弹出的HTML页面
+        "default_icon": { 用于指定插件在不同位置的默认图标
+             "16": "images/icon16.png",
+             "32": "images/icon32.png",
+             "48": "images/icon48.png",
+             "128": "images/icon128.png"
+         }  
+      },
+      
+      "icons": { 当用户在 Chrome Web Store 中浏览插件或在安装插件时看到插件的图标时，会使用 icons 指定的图标
+        "128": "icons/icon128.png",
+        "48": "icons/icon48.png",
+        "16": "icons/icon16.png"
+      },
+
+
+      "background":"service_worker":"service_worker.js"   //一后台脚本
+      "content_scripts":[
+        {
+          "js": ["scripts/content.js"], //内容脚本路径
+          "matches": ["https://developer.chrome.com/docs/extensions/*"]  //需要插入内容脚本的网址
+        }
+      ]
+
+
 }
