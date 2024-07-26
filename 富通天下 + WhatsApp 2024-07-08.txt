@@ -47,13 +47,13 @@ function whatsapp() {
                                     console.log('Div内容已变化');
 
                                     var nav6 = document.getElementsByClassName("detail_body");
-                                    console.log(nav6[0]);
-                                    console.log(nav6[0].length);
+                                        console.log(nav6[0]);
                                     var nav62 = nav6[0].children;
-                                    console.log(nav62.length);
+                                        console.log(nav62.length);
 
                                         var objArray= new Array();
                                         var index = 0;
+                                        var k =0;
 
                                     for(var i=0; i<nav62.length;i++){
                                         console.log(nav62[i]);
@@ -61,71 +61,65 @@ function whatsapp() {
                                         var tags_val2 = nav62[i].childElementCount;
                                             console.log(tags_val2);
                                         if (tags_val2 == 0) {
-                                            console.log('已变化');
-                                            console.log('内容' + objArray.length);
-                                            whats_app_id(objArray);
-
+                                            console.log('事件数量： ' + objArray.length);
+                                            if(k==0){
+                                               whats_app_id(objArray);
+                                               k=k+1;
+                                               console.log('已添加');
+                                            }else{
+                                               console.log('不需要添加');
+                                            }
                                         };
 
-                                        console.log(nav62[i]);
                                         var tags_val = nav62[i].children
                                         var tags_add = tags_val[1];
+                                            console.log(tags_add);
                                         var add_val = "ad2(" + i + ")";
-
-                                        console.log(tags_add);
-                                        console.log(add_val);
+                                            console.log(add_val);
 
                                         tags_add.setAttribute('id',add_val);
 
                                         var add2 = tags_add.innerText;
                                         tags_add.setAttribute('data-clipboard-text',add2);
-                                        console.log(66);
-                                        console.log(add_val);
+                                            console.log(55);
 
-                                        objArray[index] = add_val;
+                                        objArray[index] = document.getElementById(add_val);
                                         index++;
-                                          console.log(objArray);
+                                           console.log(objArray);
 
-                                    };
-                                    //  if(document.readyState =="complete"){
-                                    //  console.log('内容已变化');
-                                    // sleep(10000);
-                                    //  testCCC();
-                                    //}
+                                   };
 
                                     function whats_app_id(objArray){
 
-                                    for(var ii=0; ii<objArray.length;ii++){ // 检测点击事件
-                                        var add_id = objArray[ii];
-                                            console.log(add_id);
-                                        var add_text= document.getElementById(add_id);
-                                            add_text.getElementById(add_id).addEventListener("click", function fn() {//请点击显示更多主页
-                                     //   document.getElementById(add_id).addEventListener("click", function fn() {//请点击显示更多主页
-                                                          console.log(66);
-                                                         console.log(add_id);
-                                                 whats_app(add_id);
-                                                     function whats_app(add_id){
-                                                         console.log(77);
-                                                         console.log(add_id);
+                                        for(var ii=0; ii<objArray.length;ii++){ // 检测点击事件
+                                         //   var add_id = objArray[ii];
+                                        //    var add_text= document.getElementById(add_id);
+                                            console.log(600006);
+                                            console.log(ii);
+                                            (function(kk) {
+                                                    console.log(objArray[kk]);
+                                                  objArray[kk].addEventListener("click", function fn() {//请点击显示更多主页
+                                              //  document.getElementById(add_id).addEventListener("click", function fn() {//请点击显示更多主页
 
-                                                         var text05= document.getElementById(add_id).getAttribute("data-clipboard-text");
-                                                         // function whats_app(classnames){
-                                                         //      var text05= document.getElementsByClassName("value").getAttribute("data-clipboard-text");
-                                                         console.log(text05);
-                                                         console.log(88);
-                                                         var textArea05 = document.createElement("textarea");
-                                                         textArea05.value = text05;
-                                                         document.body.appendChild(textArea05);
-                                                         textArea05.select();
-                                                         document.execCommand("copy");
-                                                         layer.msg("Hello 复制成功", {icon: 6});
-                                                         setTimeout(function () {
-                                                             document.body.removeChild(textArea05);
-                                                         }, 10);
-                                                     };
-                                        },false);
-                                    }; // 检测点击事件
-                                    };
+                                                    console.log(66);
+                                                    console.log('数量： ' + kk);
+                                                        var text05= objArray[kk].getAttribute("data-clipboard-text");
+                                                            console.log(text05);
+                                                            console.log(88);
+                                                        var textArea05 = document.createElement("textarea");
+                                                            textArea05.value = text05;
+                                                        document.body.appendChild(textArea05);
+                                                            textArea05.select();
+                                                        document.execCommand("copy");
+                                                        layer.msg("Hello 复制成功", {icon: 6});
+                                                        setTimeout(function () {
+                                                            document.body.removeChild(textArea05);
+                                                        }, 1000);
+
+                                                },false);
+                                            })(ii)
+                                        }; // 检测点击事件
+                                   };
 
                                 }; // 处理div内容变化的逻辑
                             }
